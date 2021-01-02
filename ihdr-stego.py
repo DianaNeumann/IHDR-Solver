@@ -106,7 +106,7 @@ def main():
             with open(fixed_file_name, 'wb') as fix_f:
                 fix_f.write(bytes(fixed_image))
                 print('[*] Fixed image save to {}'.format(fixed_file_name))
-            exit(-1)
+           
 
 
 
@@ -145,7 +145,7 @@ def calculate_scanline_length(ihdr_info):
     bits_per_pixel = ihdr_info['bitdepth'] * colortypes[ihdr_info['colortype']]
     bits_per_scanline = ihdr_info['width'] * bits_per_pixel
 
-    scanline_length = ihdr_info['width'] * bits_per_pixel
+    scanline_length = bits_per_scanline // 8 + 1
     
     return scanline_length
 
